@@ -1,0 +1,40 @@
+@page
+@model CDUR.Pages.Customers.Index
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2></h2>
+    
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Company</th>
+            <th>Address</th>
+            <th>Created At</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model.CustomersList)
+        {
+            <tr>
+                <td>@customer.Id</td>   
+                <td>@(customer.Firstname + " " + customer.Lastname)</td>
+                <td>@customer.Email</td>
+                <td>@customer.Phone</td>
+                <td>@customer.Company</td>
+                <td>@customer.CreatedAt</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@customer.Id" class="btn btn-primary">Edit</a>
+                    <a asp-page="Details" asp-route-id="@customer.Id" class="btn btn-info">Details</a>
+                    <a asp-page="Delete" asp-route-id="@customer.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
