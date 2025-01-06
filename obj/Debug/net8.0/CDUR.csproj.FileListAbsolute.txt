@@ -20,6 +20,7 @@ D:\CDUR\obj\Debug\net8.0\CDUR.csproj.CoreCompileInputs.cache
 D:\CDUR\obj\Debug\net8.0\CDUR.MvcApplicationPartsAssemblyInfo.cache
 D:\CDUR\obj\Debug\net8.0\CDUR.RazorAssemblyInfo.cache
 D:\CDUR\obj\Debug\net8.0\CDUR.RazorAssemblyInfo.cs
+D:\CDUR\obj\Debug\net8.0\CDUR.sourcelink.json
 D:\CDUR\obj\Debug\net8.0\staticwebassets.build.json
 D:\CDUR\obj\Debug\net8.0\staticwebassets.development.json
 D:\CDUR\obj\Debug\net8.0\staticwebassets\msbuild.CDUR.Microsoft.AspNetCore.StaticWebAssets.props

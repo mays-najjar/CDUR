@@ -18,7 +18,7 @@ namespace CDUR.Pages.Customers
         {
             try
             {
-                string connectionString = "Server=localhost\\SQLEXPRESS;Database=crmdb;Trusted_Connection=True;TrustServerCertificate=True;";
+                string connectionString = "Server=localhost\\SQLEXPRESS;Database=cmd;Trusted_Connection=True;TrustServerCertificate=True;";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -38,7 +38,6 @@ namespace CDUR.Pages.Customers
                                 customer.Address = reader.GetString(5);
                                 customer.Company = reader.GetString(6);
                                 customer.Notes = reader.GetString(7);
-                                customer.CreatedAt = reader.GetDateTime(8).ToString("MM/dd/yyyy");
                                 CustomersList.Add(customer);
                             }
                         }

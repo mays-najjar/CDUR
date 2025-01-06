@@ -1,0 +1,76 @@
+@page
+@model CDUR.Pages.Customers.Create
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="text-center mb-3">Create New Customer</h2>
+   
+
+
+
+        <form method="post">
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Firstname*</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Firstname" placeholder="Enter Firstname" />
+                    <span asp-validation-for="Firstname" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Lastname*</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Lastname" placeholder="Enter Lastname" />
+                    <span asp-validation-for="Lastname" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Email*</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Email" placeholder="Enter Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Phone</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Phone" placeholder="Enter Phone" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Company*</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Company" placeholder="Enter Company" />
+                    <span asp-validation-for="Company" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Address</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Address" placeholder="Enter Address" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Notes</label>
+                <div class="col-sm-8">
+                    <textarea class="form-control" asp-for="Notes" placeholder="Enter Notes"></textarea>
+                    <span asp-validation-for="Notes" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-sm-4 col-sm-8">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                </div>
+                <div class="col-sm-4 d-grid">
+                    <a href="/Customers/Index" class="btn btn-danger" role="button">Cancel</a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

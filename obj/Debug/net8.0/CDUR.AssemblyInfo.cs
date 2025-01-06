@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CDUR")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f333981b833e1089b7fe85f07e7425dd70fe7ded")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b30a12298ec5b70bae765518250eed2e701d5ed5")]
 [assembly: System.Reflection.AssemblyProductAttribute("CDUR")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CDUR")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
