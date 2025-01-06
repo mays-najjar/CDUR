@@ -1,0 +1,29 @@
+@page
+@model CDUR.Pages.Customers.Delete
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="mx-auto rounded border p-4" style=" width: 400px">
+    <h2 class=" text-center mb-3">Delete Customer</h2>
+    <hr />
+    <h4>Are you sure you want to delete this?</h4>
+    <p>Customer Id = @Request.Query["id"]</p>
+    <hr />
+    <form method="post">
+        <div class="row">
+            <div class="col-sm6 d-grid">
+                <button type="submit" class="btn btn-danger">Delete</button>
+
+            </div>
+            <div class="col-sm6 d-grid">
+                <a asp-page="/Customers/Index" class="btn btn-primary">Cancel</a>
+
+            </div>
+
+        </div>
+    </form>
+
+</div>
