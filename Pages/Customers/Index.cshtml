@@ -31,9 +31,8 @@
                 <td>@customer.Company</td>
                 <td>@customer.CreatedAt</td>
                 <td>
-                    <a asp-page="Edit" asp-route-id="@customer.Id" class="btn btn-primary">Edit</a>
-                    <a asp-page="Details" asp-route-id="@customer.Id" class="btn btn-info">Details</a>
-                    <a asp-page="Delete" asp-route-id="@customer.Id" class="btn btn-danger">Delete</a>
+                    <a  href="/Customers/Edit?id=@customer.Id" class="btn btn-primary btn-sm">Edit</a>
+                    <a  href="/Customers/Delete?id=@customer.Id" class="btn btn-danger btn-sm">Delete</a>
                 </td>
             </tr>
         }

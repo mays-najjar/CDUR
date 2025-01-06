@@ -10,9 +10,12 @@ using Microsoft.Extensions.Logging;
 
 namespace CDUR.Pages.Customers
 {
-    public class Create : PageModel
+    public class Edit : PageModel
     {
-    
+     
+      [BindProperty ]
+        public int Id { get; set; } 
+
         [BindProperty, Required(ErrorMessage = "Firstname is required")]
         public string Firstname { get; set; } = "";
 
@@ -34,13 +37,52 @@ namespace CDUR.Pages.Customers
         [BindProperty]
         public string? Notes { get; set; }
 
-          public String ErrorMessage { get; set; } = string.Empty;
-
-        public void OnGet()
-        {
-        }
+        public String ErrorMessage { get; set; } = "";
 
         [Obsolete]
+        public void OnGet(int id)
+        {
+            try
+            {
+                string connectionString = "Server=localhost\\SQLEXPRESS;Database=cmd;Trusted_Connection=True;TrustServerCertificate=True;";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sql = "SELECT * FROM customers WHERE customer_id = @id";
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", id);
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                Id = reader.GetInt32(0);
+                                Firstname = reader.GetString(1);
+                                Lastname = reader.GetString(2);
+                                Email = reader.GetString(3);
+                                Phone = reader.GetString(4);
+                                Address = reader.GetString(5);
+                                Company = reader.GetString(6);
+                                Notes = reader.GetString(7);
+                            }
+                            else
+                            {
+                                Response.Redirect("/Customers/Index");
+                            }   
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+
+        }
+   
+
+    [Obsolete]
         public void OnPost()
         {
             if (!ModelState.IsValid)
@@ -56,9 +98,10 @@ namespace CDUR.Pages.Customers
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    string sql = "INSERT INTO customers (first_name, last_name, email, phone, address, company, notes) VALUES (@Firstname, @Lastname, @Email, @Phone, @Address, @Company, @Notes)";
+                    string sql = "UPDATE customers SET first_name = @Firstname, last_name = @Lastname, email = @Email, phone = @Phone, address = @Address, company = @Company, notes = @Notes WHERE customer_id = @id";
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
+                        command.Parameters.AddWithValue("@id", Id);
                         command.Parameters.AddWithValue("@Firstname", Firstname);
                         command.Parameters.AddWithValue("@Lastname", Lastname);
                         command.Parameters.AddWithValue("@Email", Email);
@@ -79,5 +122,6 @@ namespace CDUR.Pages.Customers
         Response.Redirect("/Customers/Index");
         }
     }
+
 
 }
