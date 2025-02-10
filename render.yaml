@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: my-aspnet-app
+    env: dotnet
+    plan: free
+    buildCommand: dotnet publish -c Release -o ./publish
+    startCommand: dotnet ./publish/CDUR.dll
